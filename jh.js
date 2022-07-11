@@ -11,55 +11,44 @@ console.log(
   `Você é um lutado de MuayThai e esta se preparando para lutar. Falta alguns dias para a luta, como treinador tem que decidir qual a melhor forma d treinar sem se machucar.\n`
 );
 
-const question1 = prompt(
-  `É dia de treino no camp, vai correr 50km? (sim/nao)  `
-).toLowerCase();
-const question2 = prompt(
-  `Chegou da corrida, treinamento de clinch? (sim/nao)  `
-).toLowerCase();
-const question3 = prompt(
-  `Terminou o treinamento de clinch, treinar fazendo flexão? (sim/nao)  `
-).toLowerCase();
-const question4 = prompt(
-  `Terminou o treinamento, agora treinar abdominais? (sim/nao)  `
-).toLowerCase();
-const question5 = prompt(
-  `Por último, treinamento tecnico? (sim/nao)  `
-).toLowerCase();
+const question = ['É dia de treino no camp, vai correr 50km? (S/N))', 'Chegou da corrida, treinamento de clinch? (S/N)', 'Terminou o treinamento de clinch, treinar fazendo flexão? (S/N)', 'Terminou o treinamento, agora treinar abdominais? (S/N)', 'Por último, treinamento tecnico? (S/N)']
 
-let score = 0;
-let questions = [question1, question2, question3, question4, question5];
-let treinos = ["correr", "clinch", "flexão", "abdominais", "tecnico"];
-let semTreinar = [];
+let scoreSim = 0;
+let questions = 's' || 'n';
 
-for (i = 0; i < questions.length; i++) {
-  while (questions[i] != "sim" && questions[i] != "nao")
-  
-  if (questions[i] == "sim") {
-    score++;
-  } else {
-    semTreinar.push(treinos[i]);
+
+for (let i = 0; i <= 4 ; i++) {
+  questions = prompt(question[i]).toLowerCase();
+    if (question == 's') {
+      scoreSim++;
+    }else if (question == 'n') {
+      scoreSim = sim;
+    }
+}
+
+  while(questions != 's' && questions != 'n') {
+    console.log("Você digitou um valor inválido, digite novamente");
+    questions = prompt(question[i]).toLowerCase();
+    if (questions == 's') {
+      scoreSim++;
+    }else{
+      scoreSim = sim;
+    }
   }
-}
-if (score == 0) {
-  console.log(
-    `\nO treino no Muay Thai é essencial para que o lutador esteja mais preparado para enfrentar seus adversários ${semTreinar},e por conta do seu mal desempenho nem se esforçou para seguir em frente.\n `
-  );
-} else if (score == 1 || score == 2) {
-  console.log(
-    `\nVocê não treinou suficiente ${semTreinar}.\n`
-  );
-} else if (score == 3) {
-  console.log(
-    `\nNo MuayThai requer treino de força ${semTreinar} e a sua luta foi de baixo desempenho e o adversário é mais forte do que você. Caso queira ganhar na próxima luta terá que treinar mais todos os dias.\n `
-  );
-} else if (score == 4) {
-  console.log(
-    `\nVocê terminou a luta perdendo ṕor pontuação  por conta do chute que levou e não aguentou. treine mais ${semTreinar}, para aguentar as pancadas.\n`
-  );
-} else {
-  console.log(
-    `\nPARABÉNS!! Você é o campẽao.\n`
-  );
-}
 
+
+if (sim == 5) {
+  console.log(`Parabéns ${nome}!!!. Você é um novo campeão. Você é um verdadeiro herói por ter se esforçado bastante nos treinos!`)
+}
+else if (sim == 4) {
+  console.log(`Legal ${nome}, Não foi dessa vez quase chegou perto de ser torna um campeão!`)
+}
+else if (sim == 3) {
+  console.log(`${nome}, você treinou pouco mais tendo mais empenho ns treinos, você consegue ter um bom resultado!`)
+}
+else if (sim <= 2 && sim != 0) {
+  console.log(`${nome}, assim complica sem se dedicar aos treinos pois vai ser difícil de alcançar um bom resultado na luta! Se esforça um pouco mais!`)
+}
+else {
+  console.log(`${nome}... ${nome}... Se não começar treinar sério não vai poder competir!`)
+}
